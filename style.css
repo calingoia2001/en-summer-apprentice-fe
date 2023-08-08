@@ -22,7 +22,18 @@ h1 {
 }
 
 .event-title {
-  color: #de411b
+  color: #1bdead;
+  text-align: center;
+}
+
+.event-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.description {
+  color: #1bdead;
+  text-align: center;
 }
 
 .event img {

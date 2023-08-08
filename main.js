@@ -7,7 +7,7 @@ function navigateTo(url) {
 function getHomePageTemplate() {
   return `
    <div id="content" >
-      <img src="./src/assets/Endava.png" alt="summer">
+      <!--<img src="./src/assets/crowd.jpg" alt="summer" class="homepage-image">-->
       <div class="events flex items-center justify-center flex-wrap">
       </div>
     </div>
@@ -60,30 +60,66 @@ function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
   // Sample hardcoded event data
-  const eventData = {
-    id: 1,
-    description: 'Sample event description.',
-    img: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-    name: 'Sample Event',
-    ticketCategories: [
-      { id: 1, description: 'General Admission' },
-      { id: 2, description: 'VIP' },
-    ],
-  };
+  const eventData = [
+    {
+      id: 1,
+      description: 'Festival de muzica electronica',
+      img: './src/assets/untold_poster.jpg',
+      name: 'Untold',
+      ticketCategories: [
+        { id: 1, description: 'General Admission' },
+        { id: 2, description: 'VIP' },
+      ],
+    },
+    {
+      id: 2,
+      description: 'Festival de muzica rock',
+      img: './src/assets/rockstadt_poster.png',
+      name: 'Rockstadt',
+      ticketCategories: [
+        { id: 1, description: 'General Admission' },
+        { id: 2, description: 'VIP' },
+      ],
+    },
+    {
+      id: 3,
+      description: 'Festival de jazz',
+      img: './src/assets/jazz_poster.jpeg',
+      name: 'Jazz in the Park',
+      ticketCategories: [
+        { id: 1, description: 'General Admission' },
+        { id: 2, description: 'VIP' },
+      ],
+    }
+  ]
+
   // Create the event card element
   const eventCard = document.createElement('div');
-  eventCard.classList.add('event-card'); 
+  eventCard.classList.add('event-card');
   // Create the event content markup
   const contentMarkup = `
     <header>
-      <h2 class="event-title text-2xl font-bold">${eventData.name}</h2>
+      <h2 class="event-title text-2xl font-bold">${eventData[0].name}</h2>
     </header>
     <div class="content">
-      <img src="${eventData.img}" alt="${eventData.name}" class="event-image w-full height-200 rounded object-cover mb-4">
-      <p class="description text-gray-700">${eventData.description}</p>
+      <img src="${eventData[0].img}" alt="${eventData[0].name}" class="event-image w-full height-200 rounded object-cover mb-4">
+      <p class="description text-gray-700">${eventData[0].description}</p>
+    </div>
+    <header>
+      <h2 class="event-title text-2xl font-bold">${eventData[1].name}</h2>
+    </header>
+    <div class="content">
+      <img src="${eventData[1].img}" alt="${eventData[1].name}" class="event-image w-full height-200 rounded object-cover mb-4">
+      <p class="description text-gray-700">${eventData[1].description}</p>
+    </div>
+    <header>
+      <h2 class="event-title text-2xl font-bold">${eventData[2].name}</h2>
+    </header>
+    <div class="content">
+      <img src="${eventData[2].img}" alt="${eventData[2].name}" class="event-image w-full height-200 rounded object-cover mb-4">
+      <p class="description text-gray-700">${eventData[2].description}</p>
     </div>
   `;
-
   eventCard.innerHTML = contentMarkup;
   const eventsContainer = document.querySelector('.events');
   // Append the event card to the events container
