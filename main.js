@@ -70,7 +70,7 @@ function renderHomePage() {
 
 // Get Events
 async function fetchTicketEvents() {
-  const response = await fetch('https://localhost:7003/api/Event/GetAll');
+  const response = await fetch('http://localhost:8080/api/v1/events');
   const data = await response.json();
   return data;
 }

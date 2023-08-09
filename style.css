@@ -29,6 +29,7 @@ h1 {
 .event-image {
   display: block;
   margin: 0 auto;
+  height: 200px;
 }
 
 .description {
