@@ -61,71 +61,50 @@ function setupInitialPage() {
 function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
-  // Sample hardcoded event data
-  const eventData = [
-    {
-      id: 1,
-      description: 'Festival de muzica electronica',
-      img: './src/assets/untold_poster.jpg',
-      name: 'Untold',
-      ticketCategories: [
-        { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' }
-      ]
-    },
-    {
-      id: 2,
-      description: 'Festival de muzica rock',
-      img: './src/assets/rockstadt_poster.png',
-      name: 'Rockstadt',
-      ticketCategories: [
-        { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' }
-      ]
-    },
-    {
-      id: 3,
-      description: 'Festival de jazz',
-      img: './src/assets/jazz_poster.jpeg',
-      name: 'Jazz in the Park',
-      ticketCategories: [
-        { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' }
-      ]
-    }
-  ]
+  fetchTicketEvents().then((data) => {
+    addEvents(data);
+  });
+}
 
-  // Create the event card element
-  const eventCard = document.createElement('div');
-  eventCard.classList.add('event-card');
-  // Create the event content markup
+// Get Events
+async function fetchTicketEvents() {
+  const response = await fetch('https://localhost:7003/api/Event/GetAll');
+  const data = await response.json();
+  return data;
+}
+
+const addEvents = (events) => {
+  const eventsDiv = document.querySelector('.events');
+  eventsDiv.innerHTML = 'No events available';
+
+  if (events.length) {
+    eventsDiv.innerHTML = '';
+    events.forEach((event) => {
+      eventsDiv.appendChild(createEvent(event));
+    });
+  }
+}
+
+const createEvent = (eventData) => {
+  const eventElement = createEventElement(eventData);
+  return eventElement;
+};
+
+const createEventElement = (eventData) => {
+  const { eventId, eventName, eventDescription } = eventData;
+  console.log(eventData);
+  const eventDiv = document.createElement('div');
   const contentMarkup = `
     <header>
-      <h2 class="event-title text-2xl font-bold">${eventData[0].name}</h2>
+        <h2 class="event-title text-2xl font-bold">${eventName}</h2>
     </header>
     <div class="content">
-      <img src="${eventData[0].img}" alt="${eventData[0].name}" class="event-image w-full height-200 rounded object-cover mb-4">
-      <p class="description text-gray-700">${eventData[0].description}</p>
-    </div>
-    <header>
-      <h2 class="event-title text-2xl font-bold">${eventData[1].name}</h2>
-    </header>
-    <div class="content">
-      <img src="${eventData[1].img}" alt="${eventData[1].name}" class="event-image w-full height-200 rounded object-cover mb-4">
-      <p class="description text-gray-700">${eventData[1].description}</p>
-    </div>
-    <header>
-      <h2 class="event-title text-2xl font-bold">${eventData[2].name}</h2>
-    </header>
-    <div class="content">
-      <img src="${eventData[2].img}" alt="${eventData[2].name}" class="event-image w-full height-200 rounded object-cover mb-4">
-      <p class="description text-gray-700">${eventData[2].description}</p>
+    <p class="description text-gray-700">${eventId}</p>
+      <p class="description text-gray-700">${eventDescription}</p>
     </div>
   `;
-  eventCard.innerHTML = contentMarkup;
-  const eventsContainer = document.querySelector('.events');
-  // Append the event card to the events container
-  eventsContainer.appendChild(eventCard);
+  eventDiv.innerHTML = contentMarkup;
+  return eventDiv;
 }
 
 function renderOrdersPage(categories) {
