@@ -8,7 +8,7 @@ const createEventElement = (eventData) => {
     6: './src/assets/rockstadt_poster.png',
     7: './src/assets/untold_poster.jpg'
     // Add more entries as needed
-};
+  };
     const { id, name, description } = eventData;
     console.log(eventData);
     const eventDiv = document.createElement('div');
@@ -18,8 +18,8 @@ const createEventElement = (eventData) => {
       </header>
       <div class="content">
         <img src="${eventImageMap[id]}" alt="${name}" class="event-image w-full height-200 rounded object-cover mb-4">
-        <p class="description text-gray-700">${id}</p>
-        <p class="description text-gray-700">${description}</p>
+        <p class="description text-gray-700">Event id: ${id}</p>
+        <p class="description text-gray-700">Description: ${description}</p>
       </div>
     `;
     eventDiv.innerHTML = contentMarkup;
