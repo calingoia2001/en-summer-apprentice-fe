@@ -11,11 +11,12 @@ const styles = {
         'focus:outline-none',
         'focus:shadow-outline'
       ],
-      input: [
+      inputTicket: [
+        'input-ticket',
         'w-16',
         'text-center',
         'border',
-        'border-gray-300',
+        'border-gray-700',
         'rounded',
         'py-2',
         'px-3',

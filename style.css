@@ -75,7 +75,13 @@ h1 {
   background: #de411b;
   margin: 22px auto;
   display: block;
-  width: 100%;
+  width: 80%;
+}
+
+.input-ticket {
+  margin-top: 10px;
+  width: 20%;
+  margin-left: 40%;
 }
 
 .main-content-component {
