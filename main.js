@@ -1,3 +1,5 @@
+/* eslint-disable space-before-function-paren */
+/* eslint-disable semi */
 // Navigate to a specific URL
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -23,14 +25,14 @@ function getOrdersPageTemplate() {
 }
 
 function setupNavigationEvents() {
-  const navLinks = document.querySelectorAll('nav a');
+  const navLinks = document.querySelectorAll('nav a')
   navLinks.forEach((link) => {
     link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const href = link.getAttribute('href');
-      navigateTo(href);
-    });
-  });
+      event.preventDefault()
+      const href = link.getAttribute('href')
+      navigateTo(href)
+    })
+  })
 }
 
 function setupMobileMenuEvent() {
@@ -68,8 +70,8 @@ function renderHomePage() {
       name: 'Untold',
       ticketCategories: [
         { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' },
-      ],
+        { id: 2, description: 'VIP' }
+      ]
     },
     {
       id: 2,
@@ -78,8 +80,8 @@ function renderHomePage() {
       name: 'Rockstadt',
       ticketCategories: [
         { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' },
-      ],
+        { id: 2, description: 'VIP' }
+      ]
     },
     {
       id: 3,
@@ -88,8 +90,8 @@ function renderHomePage() {
       name: 'Jazz in the Park',
       ticketCategories: [
         { id: 1, description: 'General Admission' },
-        { id: 2, description: 'VIP' },
-      ],
+        { id: 2, description: 'VIP' }
+      ]
     }
   ]
 
