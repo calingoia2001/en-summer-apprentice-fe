@@ -1,6 +1,8 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable semi */
 // Navigate to a specific URL
+import { addEvents } from './src/utils';
+
 function navigateTo(url) {
   history.pushState(null, null, url);
   renderContent(url);
@@ -71,40 +73,6 @@ async function fetchTicketEvents() {
   const response = await fetch('https://localhost:7003/api/Event/GetAll');
   const data = await response.json();
   return data;
-}
-
-const addEvents = (events) => {
-  const eventsDiv = document.querySelector('.events');
-  eventsDiv.innerHTML = 'No events available';
-
-  if (events.length) {
-    eventsDiv.innerHTML = '';
-    events.forEach((event) => {
-      eventsDiv.appendChild(createEvent(event));
-    });
-  }
-}
-
-const createEvent = (eventData) => {
-  const eventElement = createEventElement(eventData);
-  return eventElement;
-};
-
-const createEventElement = (eventData) => {
-  const { eventId, eventName, eventDescription } = eventData;
-  console.log(eventData);
-  const eventDiv = document.createElement('div');
-  const contentMarkup = `
-    <header>
-        <h2 class="event-title text-2xl font-bold">${eventName}</h2>
-    </header>
-    <div class="content">
-    <p class="description text-gray-700">${eventId}</p>
-      <p class="description text-gray-700">${eventDescription}</p>
-    </div>
-  `;
-  eventDiv.innerHTML = contentMarkup;
-  return eventDiv;
 }
 
 function renderOrdersPage(categories) {
