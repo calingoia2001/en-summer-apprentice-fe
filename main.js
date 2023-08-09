@@ -12,7 +12,7 @@ function getHomePageTemplate() {
   return `
    <div id="content" >
       <!--<img src="./src/assets/crowd.jpg" alt="summer" class="homepage-image">-->
-      <div class="events flex items-center justify-center flex-wrap">
+      <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4"">
       </div>
     </div>
   `;

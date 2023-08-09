@@ -18,11 +18,10 @@ h1 {
 .content {
   border: 1px solid #0e6cb8;
   box-shadow: 0 0 2px 0 rgba(145,158,171,.2), 0 12px 24px -4px rgba(145,158,171,.12);
-  margin-left: 100px;
 }
 
 .event-title {
-  color: #469d14;
+  color: #de411b;
   text-align: center;
 }
 
