@@ -26,7 +26,7 @@ const createEventElement = (eventData) => {
         <h2 class="event-title text-2xl font-bold">${name}</h2>
         <img src="${eventImageMap[id]}" alt="${name}" class="event-image w-full height-200 rounded object-cover mb-4">
         <p class="description text-gray-700">Event id: ${id}</p>
-        <p class="description text-gray-700">Location: ${venue.locationName} ( Remaining tickets: ${venue.capacity}</p>
+        <p class="description text-gray-700">Location: ${venue.locationName} ( Remaining tickets: ${venue.capacity})</p>
         <p class="description text-gray-700">Remaining tickets: ${venue.capacity}</p>
         <p class="description text-gray-700">Date: ${startDate} : ${endDate}</p>
         <p class="description text-gray-700">Description: ${description}</p>
@@ -72,8 +72,8 @@ const postOrder = (id, ticketID, input) => {
       "Content-Type": 'application/json',
     },
     body: JSON.stringify({
-      eventID: id, // toFix (always selects eventID 1)
-      ticketCategoryID: ticketID, // ticketCategoryId, // todo (implement ticket categories)
+      eventID: id, 
+      ticketCategoryID: ticketID,
       numberOfTickets: +numberOfTickets,
     }),
   }).then((response) => {
