@@ -7,7 +7,6 @@ import { useStyle } from './styles';
 import { removeLoader, showLoader } from './removeOrAddLoader';
 
 const createEventElement = (eventData) => {
-  console.log(eventData);
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events
@@ -58,6 +57,8 @@ const createEventElement = (eventData) => {
 const postOrder = (id, /* selectTicketCategory, */ input) => {
   const numberOfTickets = input.value; 
   // const ticketCategoryId = selectTicketCategory.value;
+  if (parseInt(numberOfTickets)) {
+  console.log(numberOfTickets);
   showLoader();
   fetch('http://localhost:8080/api/v1/orders', {
     method: "POST",
@@ -79,9 +80,8 @@ const postOrder = (id, /* selectTicketCategory, */ input) => {
   })
   .then((data) => {
     input.value = 0;
-    console.log('order sent to backend');
     // eslint-disable-next-line no-undef
-    toastr.success('Success!');
+    toastr.success('Order succesfully created!');
   })
   .catch((error) => {
     console.error('error saving purchased event:', error);
@@ -91,6 +91,10 @@ const postOrder = (id, /* selectTicketCategory, */ input) => {
   .finally(() => {
     removeLoader();
   });
+  } else {
+    // eslint-disable-next-line no-undef
+    toastr.error('Please enter a valid number of tickets!');
+  }
 }
 
 export const createEvent = (eventData) => {
