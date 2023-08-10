@@ -21,6 +21,7 @@ const createEventElement = (eventData) => {
   };
     const { id, name, description, venue, startDate, endDate, ticketCategories } = eventData;
     const eventDiv = document.createElement('div');
+    eventDiv.classList.add('fullEvent');
     const contentMarkup = `
       <div class="card">
         <h2 class="event-title text-2xl font-bold">${name}</h2>
@@ -30,8 +31,8 @@ const createEventElement = (eventData) => {
         <p class="description text-gray-700">Remaining tickets: ${venue.capacity}</p>
         <p class="description text-gray-700">Date: ${startDate} : ${endDate}</p>
         <p class="description text-gray-700">Description: ${description}</p>
-        <label for="ticketCategories">Select a ticket category:</label>
-        <select name="ticketCategories" id="ticketCategories-${id}">
+        <label for="ticketCategories" class="ticketSelectText">Select a ticket category:</label>
+        <select name="ticketCategories" id="ticketCategories-${id}" class="ticketSelect">
         <option value="${ticketCategories[0].id}">${ticketCategories[0].description} (Price: ${ticketCategories[0].price}$)</option>
         <option value="${ticketCategories[1].id}">${ticketCategories[1].description} (Price: ${ticketCategories[1].price}$)</option>
         </select>
