@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'perivtina';
+  src: url(src/assets/fonts/perivtina.ttf) format("truetype");
+}
+
 body {
   font-family: 'Roboto', sans-serif;
 }
@@ -12,7 +17,7 @@ h1 {
   font-size: 32px;
   font-weight: bold;
   margin-bottom: 12px;
-  color: #de411b;
+  color: #ac92ec
 }
 
 .card {
@@ -21,14 +26,21 @@ h1 {
 }
 
 .event-title {
-  color: #de411b;
+  color: #ac92ec;
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .event-image {
   display: block;
   margin: 0 auto;
-  height: 200px;
+  height: 400px;
+  width: 600px;
+  padding: 10px;
+  border: 3px solid #ac92ec; /* Add a border with color #ac92ec */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+  border-radius: 8px; /* Add rounded corners for a nicer look */
+  box-sizing: border-box;
 }
 
 .description {
@@ -53,17 +65,25 @@ h1 {
 }
 
 #page-header {
-  background-color: #fff;
+  background-color: #ffff8f;
   position: sticky;
   top: 0;
 }
 
 .link-item {
-  color: #de411b
+  color: #ac92ec;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a text shadow effect */
+  transition: color 0.4s;
+}
+
+.link-item:hover {
+  color: #ffce54; /* Change text color on hover */
 }
 
 .logo {
-  height: 50px;
+  height: 100px;
   padding: 6px;
 }
 
@@ -85,6 +105,7 @@ h1 {
 }
 
 .main-content-component {
+  margin-top: 40px;
   margin-bottom: 40px;
 }
 
