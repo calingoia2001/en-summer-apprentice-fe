@@ -6,7 +6,6 @@
 import { useStyle } from './styles';
 
 const createEventElement = (eventData) => {
-  console.log(eventData);
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events
@@ -18,29 +17,25 @@ const createEventElement = (eventData) => {
     8: './src/assets/rolling_poster.jpeg',
     9: './src/assets/tomorrowland_poster.jpg'
   };
-    const { id, name, description, venue, type, startDate, endDate, ticketCategories } = eventData;
+    const { id, name, description, venue, startDate, endDate /* , ticketCategories */ } = eventData;
     const eventDiv = document.createElement('div');
     const contentMarkup = `
-      <div class="content">
+      <div class="card">
         <h2 class="event-title text-2xl font-bold">${name}</h2>
         <img src="${eventImageMap[id]}" alt="${name}" class="event-image w-full height-200 rounded object-cover mb-4">
         <p class="description text-gray-700">Event id: ${id}</p>
-        <p class="description text-gray-700">Location: ${venue.locationName}</p>
-        <p class="description text-gray-700">Type: ${type}</p>
+        <p class="description text-gray-700">Location: ${venue.locationName} ( Remaining tickets: ${venue.capacity}</p>
+        <p class="description text-gray-700">Remaining tickets: ${venue.capacity}</p>
         <p class="description text-gray-700">Date: ${startDate} : ${endDate}</p>
         <p class="description text-gray-700">Description: ${description}</p>
-        <label for="ticketCategories">Select a ticket category:</label>
-        <select name="ticketCategories" id="ticketCategories">
-        <option value="${ticketCategories[0].id}">${ticketCategories[0].description} (Price: ${ticketCategories[0].price}$)</option>
-        <option value="${ticketCategories[1].id}">${ticketCategories[1].description} (Price: ${ticketCategories[1].price}$)</option>
-        </select>
+        
       </div>
     `;
     eventDiv.innerHTML = contentMarkup;
 
     const input = document.createElement('input');
     const addToCart = document.createElement('button');
-    const selectTicketCategory = document.querySelector('#ticketCategories')
+    // const selectTicketCategory = document.querySelector('#ticketCategories')
     input.classList.add(...inputClasses);
     input.type = 'number';
     input.min = '0';
@@ -50,7 +45,7 @@ const createEventElement = (eventData) => {
     addToCart.classList.add(...addToCartBtnClasses);
     addToCart.innerText = 'Add ticket to Cart';
     addToCart.addEventListener('click', () => {
-      postOrder(id, selectTicketCategory, input);
+      postOrder(id, /* selectTicketCategory */ input);
       // console.log(selectTicketCategory.value); // not working
     });
 
@@ -59,9 +54,9 @@ const createEventElement = (eventData) => {
     return eventDiv;
 }
 
-const postOrder = (id, selectTicketCategory, input) => {
+const postOrder = (id, /* selectTicketCategory, */ input) => {
   const numberOfTickets = input.value; 
-  const ticketCategoryId = selectTicketCategory.value;
+  // const ticketCategoryId = selectTicketCategory.value;
   fetch('http://localhost:8080/api/v1/orders', {
     method: "POST",
     headers: {
@@ -69,7 +64,7 @@ const postOrder = (id, selectTicketCategory, input) => {
     },
     body: JSON.stringify({
       eventID: id, // toFix (always selects eventID 1)
-      ticketCategoryID: ticketCategoryId, // todo (implement ticket categories)
+      ticketCategoryID: id, // ticketCategoryId, // todo (implement ticket categories)
       numberOfTickets: +numberOfTickets,
     }),
   }).then((response) => {
