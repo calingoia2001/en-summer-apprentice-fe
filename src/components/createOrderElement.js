@@ -6,7 +6,6 @@
 // import { useStyle } from './styles';
 
 export const createOrderElement = (order) => {
-    console.log(order);
     const { eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
     const contentMarkup = `

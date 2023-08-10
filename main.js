@@ -2,6 +2,7 @@
 /* eslint-disable semi */
 import { addEvents } from './src/utils';
 import { createOrderElement } from './src/components/createOrderElement';
+import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
 
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -79,7 +80,11 @@ async function fetchOrders() {
 function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
+  showLoader();
   fetchTicketEvents().then((data) => {
+    setTimeout(() => {
+      removeLoader();
+    }, 800);
     addEvents(data);
   });
 }
@@ -87,9 +92,13 @@ function renderHomePage() {
 function renderOrdersPage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getOrdersPageTemplate();
+  showLoader();
   const purchasesDiv = document.querySelector('.orders');
   if (purchasesDiv) {
     fetchOrders().then((orders) => {
+      setTimeout(() => {
+        removeLoader();
+      }, 800);
       orders.forEach((order) => {
         const newOrder = createOrderElement(order);
         purchasesDiv.appendChild(newOrder);

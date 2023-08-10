@@ -4,8 +4,10 @@
 /* eslint-disable indent */
 /* eslint-disable semi */
 import { useStyle } from './styles';
+import { removeLoader, showLoader } from './removeOrAddLoader';
 
 const createEventElement = (eventData) => {
+  console.log(eventData);
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events
@@ -28,7 +30,6 @@ const createEventElement = (eventData) => {
         <p class="description text-gray-700">Remaining tickets: ${venue.capacity}</p>
         <p class="description text-gray-700">Date: ${startDate} : ${endDate}</p>
         <p class="description text-gray-700">Description: ${description}</p>
-        
       </div>
     `;
     eventDiv.innerHTML = contentMarkup;
@@ -57,6 +58,7 @@ const createEventElement = (eventData) => {
 const postOrder = (id, /* selectTicketCategory, */ input) => {
   const numberOfTickets = input.value; 
   // const ticketCategoryId = selectTicketCategory.value;
+  showLoader();
   fetch('http://localhost:8080/api/v1/orders', {
     method: "POST",
     headers: {
@@ -86,6 +88,9 @@ const postOrder = (id, /* selectTicketCategory, */ input) => {
     // eslint-disable-next-line no-undef
     toastr.error('Error!');
   })
+  .finally(() => {
+    removeLoader();
+  });
 }
 
 export const createEvent = (eventData) => {
