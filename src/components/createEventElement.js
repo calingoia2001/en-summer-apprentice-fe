@@ -78,9 +78,13 @@ const postOrder = (id, /* selectTicketCategory, */ input) => {
   .then((data) => {
     input.value = 0;
     console.log('order sent to backend');
+    // eslint-disable-next-line no-undef
+    toastr.success('Success!');
   })
   .catch((error) => {
     console.error('error saving purchased event:', error);
+    // eslint-disable-next-line no-undef
+    toastr.error('Error!');
   })
 }
 
