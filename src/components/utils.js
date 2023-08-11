@@ -1,7 +1,7 @@
 /* eslint-disable semi */
 /* eslint-disable indent */
 /* eslint-disable no-trailing-spaces */
-import { createEvent } from './components/createEventElement';
+import { createEvent } from './createEventElement';
 
 export const addEvents = (events) => {
     const eventsDiv = document.querySelector('.events');

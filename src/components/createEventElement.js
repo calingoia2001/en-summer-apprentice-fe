@@ -64,7 +64,7 @@ const createEventElement = (eventData) => {
 const postOrder = (id, ticketID, input) => {
   const numberOfTickets = input.value;
   console.log(id, ticketID, input.value);
-  if (parseInt(numberOfTickets)) {
+  if (parseInt(numberOfTickets) && parseInt(numberOfTickets) < 16) {
     showLoader();
     fetch('http://localhost:8080/api/v1/orders', {
       method: "POST",

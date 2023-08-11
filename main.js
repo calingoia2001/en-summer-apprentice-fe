@@ -1,9 +1,10 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable semi */
-import { addEvents } from './src/utils';
+import { addEvents } from './src/components/utils';
 import { createOrderElement } from './src/components/createOrderElement';
 import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
 import { fetchTicketEvents, fetchOrders } from './src/components/apiCalls';
+import { setupFilter } from './src/components/searchFunctions';
 
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -69,11 +70,15 @@ function setupInitialPage() {
 function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
+  const searchBar = document.querySelector('#searchBar');
   showLoader();
   fetchTicketEvents().then((data) => {
     setTimeout(() => {
       removeLoader();
     }, 800);
+    if (searchBar) {
+      setupFilter(data);
+    }
     addEvents(data);
   });
 }
