@@ -8,8 +8,9 @@
 export const createOrderElement = (order) => {
     const { eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
+    orderDiv.classList.add('fullOrder');
     const contentMarkup = `
-      <div class="card">
+      <div class="orderCard">
         <p class="description text-gray-700">Event id: ${eventID}</p>
         <p class="description text-gray-700">Number of tickets: ${numberOfTickets}</p>
         <p class="description text-gray-700">Ordered At: ${orderedAt}</p>

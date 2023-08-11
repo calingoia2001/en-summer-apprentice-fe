@@ -42,8 +42,6 @@ h1 {
   margin: 12px auto;
 }
 
-
-
 .link-item {
   color: #ac92ec;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -119,5 +117,9 @@ h1 {
 
 .add-btn {
   background-color: #de411b;
+}
+
+.fullOrder {
+  border: 1px solid #0e6cb8;
 }
 

@@ -3,6 +3,7 @@
 import { addEvents } from './src/utils';
 import { createOrderElement } from './src/components/createOrderElement';
 import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
+import { fetchTicketEvents, fetchOrders } from './src/components/apiCalls';
 
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -61,20 +62,6 @@ function setupPopstateEvent() {
 function setupInitialPage() {
   const initialUrl = window.location.pathname;
   renderContent(initialUrl);
-}
-
-// Get Events
-async function fetchTicketEvents() {
-  const response = await fetch('http://localhost:8080/api/v1/events');
-  const data = await response.json();
-  return data;
-}
-
-// Get Orders
-async function fetchOrders() {
-  const response = await fetch('http://localhost:8080/api/v1/orders?customerID=2');
-  const data = await response.json();
-  return data;
 }
 
 function renderHomePage() {
