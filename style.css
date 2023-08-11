@@ -64,6 +64,31 @@ h1 {
   margin-bottom: 40px;
 }
 
+#searchBar {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 40%;
+  margin-bottom: 3%;
+}
+
+#filterButton {
+  background-color: #ffce54;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-left: 5px;
+}
+
+#filterButton:hover {
+  background-color: #ac92ec;
+}
+
 .fullEvent {
   border: 1px solid #0e6cb8;
 }

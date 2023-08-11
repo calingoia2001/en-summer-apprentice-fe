@@ -14,6 +14,8 @@ function navigateTo(url) {
 function getHomePageTemplate() {
   return `
    <div id="content" >
+      <input type="text" id="searchBar" placeholder="Search by name"/>
+      <button id="filterButton">Filter Events</button>
       <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4"">
       </div>
     </div>
@@ -80,15 +82,15 @@ function renderOrdersPage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getOrdersPageTemplate();
   showLoader();
-  const purchasesDiv = document.querySelector('.orders');
-  if (purchasesDiv) {
+  const ordersDiv = document.querySelector('.orders');
+  if (ordersDiv) {
     fetchOrders().then((orders) => {
       setTimeout(() => {
         removeLoader();
       }, 800);
       orders.forEach((order) => {
         const newOrder = createOrderElement(order);
-        purchasesDiv.appendChild(newOrder);
+        ordersDiv.appendChild(newOrder);
       });
     })
   }
