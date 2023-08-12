@@ -11,13 +11,13 @@ const createEventElement = (eventData) => {
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events
-    1: './src/assets/ec_poster.jpg',
-    2: './src/assets/folk_poster.jpeg',
-    3: './src/assets/jazz_poster.jpeg',
-    6: './src/assets/rockstadt_poster.png',
-    7: './src/assets/untold_poster.jpg',
-    8: './src/assets/rolling_poster.jpeg',
-    9: './src/assets/tomorrowland_poster.jpg'
+    1: './src/assets/untold_poster.jpg',
+    2: './src/assets/rockstadt_poster.png',
+    3: './src/assets/footbal_poster.jpg',
+    11: './src/assets/theatre_poster.jpg',
+    12: './src/assets/tenis_poster.png',
+    13: './src/assets/ec_poster.jpg',
+    14: './src/assets/jazz_poster.jpeg'
   };
   const { id, name, description, venue, startDate, endDate, ticketCategories } = eventData;
   const eventDiv = document.createElement('div');

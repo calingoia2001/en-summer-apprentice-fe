@@ -4,8 +4,11 @@
 /* eslint-disable indent */
 /* eslint-disable semi */
 
+import { deleteOrderById } from "./apiCalls";
+
 export const createOrderElement = (order) => {
-    const { eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
+    console.log(order);
+    const { orderID, eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
     orderDiv.classList.add('fullOrder');
     const contentMarkup = `
@@ -21,7 +24,7 @@ export const createOrderElement = (order) => {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'delete';
     deleteButton.addEventListener('click', () => {
-      // deleteOrder(orderID); // to do
+      deleteOrderById(orderID);
     })
     orderDiv.appendChild(deleteButton);
     return orderDiv;

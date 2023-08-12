@@ -4,7 +4,9 @@
 /* eslint-disable indent */
 /* eslint-disable semi */
 
-function displayFilters (venueSet, eventTypeSet, filtersContainer) {
+import { addEvents } from "./utils";
+
+function displayFilters (venueSet, eventTypeSet, filtersContainer, events) {
     const venueCheckboxes = Array.from(venueSet).map(venue => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -38,13 +40,23 @@ function displayFilters (venueSet, eventTypeSet, filtersContainer) {
     eventTypeCheckboxes.forEach(checkbox => {
         filtersContainer.appendChild(checkbox);
     });
+
+    filtersContainer.addEventListener('change', () => {
+        const selectedVenues = Array.from(filtersContainer.querySelectorAll('input[name="venue"]:checked')).map(checkbox => checkbox.value);
+        const selectedEventTypes = Array.from(filtersContainer.querySelectorAll('input[name="eventType"]:checked')).map(checkbox => checkbox.value);
+        const filteredEvents = events.filter(event => {
+            return (selectedVenues.length === 0 || selectedVenues.includes(event.venue.locationName)) &&
+                   (selectedEventTypes.length === 0 || selectedEventTypes.includes(event.type));
+          });
+        addEvents(filteredEvents);
+    })
 }
 
 export function testFilterButton (events) {
     const venueSet = new Set(events.map((event) => event.venue.locationName));
     const eventTypeSet = new Set(events.map((event) => event.type));
     const filtersContainer = document.querySelector('#displayFilters');
-    displayFilters(venueSet, eventTypeSet, filtersContainer);
+    displayFilters(venueSet, eventTypeSet, filtersContainer, events);
 
     console.log(venueSet, eventTypeSet);
 }
