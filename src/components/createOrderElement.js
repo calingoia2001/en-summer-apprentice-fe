@@ -5,7 +5,6 @@
 /* eslint-disable semi */
 
 export const createOrderElement = (order) => {
-    // console.log(order);
     const { eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
     orderDiv.classList.add('fullOrder');
@@ -22,7 +21,7 @@ export const createOrderElement = (order) => {
     const deleteButton = document.createElement('button');
     deleteButton.innerText = 'delete';
     deleteButton.addEventListener('click', () => {
-      // deleteOrder(orderID);
+      // deleteOrder(orderID); // to do
     })
     orderDiv.appendChild(deleteButton);
     return orderDiv;

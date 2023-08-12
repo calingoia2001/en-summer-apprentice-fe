@@ -5,6 +5,7 @@ import { createOrderElement } from './src/components/createOrderElement';
 import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
 import { fetchTicketEvents, fetchOrders } from './src/components/apiCalls';
 import { setupFilter } from './src/components/searchFunctions';
+import { testFilterButton } from './src/components/filterFunctions';
 
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -17,6 +18,8 @@ function getHomePageTemplate() {
    <div id="content" >
       <input type="text" id="searchBar" placeholder="Search by name"/>
       <button id="filterButton">Filter Events</button>
+      <div id="displayFilters">
+      </div>
       <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4"">
       </div>
     </div>
@@ -71,11 +74,15 @@ function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
   const searchBar = document.querySelector('#searchBar');
+  const filterButton = document.querySelector('#filterButton');
   showLoader();
   fetchTicketEvents().then((data) => {
     setTimeout(() => {
       removeLoader();
     }, 800);
+    filterButton.addEventListener('click', () => {
+      testFilterButton(data);
+    })
     if (searchBar) {
       setupFilter(data);
     }

@@ -7,6 +7,7 @@ import { useStyle } from './styles';
 import { removeLoader, showLoader } from './removeOrAddLoader';
 
 const createEventElement = (eventData) => {
+  console.log(eventData);
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events

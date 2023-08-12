@@ -17,3 +17,8 @@ export async function fetchOrders () {
     const data = await response.json();
     return data;
 }
+
+// Delete Order by ID  // https://localhost:7003/api/Order/Delete?id=10000
+export async function deleteOrderById () {
+    // to do
+}
