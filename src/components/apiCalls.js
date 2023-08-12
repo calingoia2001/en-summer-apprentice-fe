@@ -21,7 +21,7 @@ export async function fetchOrders () {
     return data;
 }
 
-// Delete Order by ID  // https://localhost:7003/api/Order/Delete?id=10000
+// Delete Order by ID 
 export async function deleteOrderById (orderID) {
     showLoader();
     fetch(`https://localhost:7003/api/Order/Delete?id=${orderID}`, {
@@ -42,11 +42,17 @@ export async function deleteOrderById (orderID) {
     .then((data) => {
         removeLoader();
         // eslint-disable-next-line no-undef
+        const orderToBeRemoved = document.getElementById(`order-${orderID}`);
+        orderToBeRemoved.remove();
         toastr.success('Success!');
     })
     .catch((error) => {
         removeLoader();
-        console.log(error);
         toastr.error(error);
     });
+}
+
+// Update a order
+export async function updateOrder (orderID) {
+    // to do
 }

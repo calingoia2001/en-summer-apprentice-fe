@@ -5,7 +5,7 @@ import { createOrderElement } from './src/components/createOrderElement';
 import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
 import { fetchTicketEvents, fetchOrders } from './src/components/apiCalls';
 import { setupFilter } from './src/components/searchFunctions';
-import { testFilterButton } from './src/components/filterFunctions';
+import { filterEvents } from './src/components/filterFunctions';
 
 function navigateTo(url) {
   history.pushState(null, null, url);
@@ -81,7 +81,7 @@ function renderHomePage() {
       removeLoader();
     }, 800);
     filterButton.addEventListener('click', () => {
-      testFilterButton(data);
+      filterEvents(data);
     })
     if (searchBar) {
       setupFilter(data);

@@ -10,6 +10,7 @@ export const createOrderElement = (order) => {
     console.log(order);
     const { orderID, eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
+    orderDiv.id = `order-${orderID}`;
     orderDiv.classList.add('fullOrder');
     const contentMarkup = `
       <div class="orderCard">
@@ -22,10 +23,16 @@ export const createOrderElement = (order) => {
     `;
     orderDiv.innerHTML = contentMarkup;
     const deleteButton = document.createElement('button');
+    const updateButton = document.createElement('button');
     deleteButton.innerText = 'delete';
     deleteButton.addEventListener('click', () => {
       deleteOrderById(orderID);
     })
+    updateButton.innerText = 'update';
+    updateButton.addEventListener('click', () => {
+      // updateOrder(orderID); // to do
+    })
     orderDiv.appendChild(deleteButton);
+    orderDiv.appendChild(updateButton)
     return orderDiv;
 };

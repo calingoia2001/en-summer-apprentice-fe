@@ -6,7 +6,11 @@
 
 import { addEvents } from "./utils";
 
-function displayFilters (venueSet, eventTypeSet, filtersContainer, events) {
+export function filterEvents (events) {
+    const venueSet = new Set(events.map((event) => event.venue.locationName));
+    const eventTypeSet = new Set(events.map((event) => event.type));
+    const filtersContainer = document.querySelector('#displayFilters');
+    
     const venueCheckboxes = Array.from(venueSet).map(venue => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -50,13 +54,4 @@ function displayFilters (venueSet, eventTypeSet, filtersContainer, events) {
           });
         addEvents(filteredEvents);
     })
-}
-
-export function testFilterButton (events) {
-    const venueSet = new Set(events.map((event) => event.venue.locationName));
-    const eventTypeSet = new Set(events.map((event) => event.type));
-    const filtersContainer = document.querySelector('#displayFilters');
-    displayFilters(venueSet, eventTypeSet, filtersContainer, events);
-
-    console.log(venueSet, eventTypeSet);
 }

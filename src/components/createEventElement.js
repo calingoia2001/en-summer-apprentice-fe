@@ -7,7 +7,6 @@ import { useStyle } from './styles';
 import { removeLoader, showLoader } from './removeOrAddLoader';
 
 const createEventElement = (eventData) => {
-  console.log(eventData);
   const addToCartBtnClasses = useStyle('addToCartBtn');
   const inputClasses = useStyle('inputTicket');
   const eventImageMap = { // hardcoded images for events
@@ -64,7 +63,6 @@ const createEventElement = (eventData) => {
 
 const postOrder = (id, ticketID, input) => {
   const numberOfTickets = input.value;
-  console.log(id, ticketID, input.value);
   if (parseInt(numberOfTickets) && parseInt(numberOfTickets) < 16) {
     showLoader();
     fetch('http://localhost:8080/api/v1/orders', {
