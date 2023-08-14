@@ -4,7 +4,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oxygen', sans-serif;
 }
 
 #page-header {
@@ -24,22 +24,6 @@ h1 {
   font-weight: bold;
   margin-bottom: 12px;
   color: #ac92ec
-}
-
-.event img {
-  height: 150px;
-}
-
-#ticketType {
-  width: 100%;
-}
-
-.actions {
-  flex-wrap: wrap;
-}
-
-.quantity {
-  margin: 12px auto;
 }
 
 .link-item {
@@ -64,11 +48,11 @@ h1 {
   margin-bottom: 40px;
 }
 
-#searchBar {
+.searchBar {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   margin-left: 40%;
   margin-bottom: 3%;
 }
@@ -89,42 +73,12 @@ h1 {
   background-color: #ac92ec;
 }
 
-.fullEvent {
-  border: 1px solid #0e6cb8;
-}
-
 .event-title {
   color: #ac92ec;
-  text-align: center;
-  font-family: 'Courier New', Courier, monospace;
 }
-
-.event-image {
-  display: block;
-  margin: 0 auto;
-  height: 400px;
-  width: 600px;
-  padding: 10px;
-  border: 3px solid #ac92ec; /* Add a border with color #ac92ec */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
-  border-radius: 8px; /* Add rounded corners for a nicer look */
-  box-sizing: border-box;
-}
-
-.description {
-  color: #ac92ec;
-  text-align: center;
-}
-
 
 .ticketSelectText {
   margin-left: 20%;
-  color: #ffce54;
-}
-
-.ticketSelect {
-  background: #ffce54;
-  
 }
 
 .input-ticket {
@@ -134,14 +88,10 @@ h1 {
 }
 
 .add-to-cart-btn {
-  background: #ffce54;
+  background: #ac92ec;
   margin: 22px auto;
   display: block;
-  width: 80%;
-}
-
-.add-btn {
-  background-color: #de411b;
+  width: 40%;
 }
 
 .fullOrder {

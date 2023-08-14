@@ -6,7 +6,7 @@
 import { addEvents } from './utils';
 
 function liveSearch (events) {
-    const searchBar = document.querySelector('#searchBar');
+    const searchBar = document.querySelector('.searchBar');
     if (searchBar) {
       const searchValue = searchBar.value;
       if (searchValue !== undefined) {
@@ -17,7 +17,7 @@ function liveSearch (events) {
 }
   
 export function setupFilter (data) {
-    const searchBar = document.querySelector('#searchBar');
+    const searchBar = document.querySelector('.searchBar');
     if (searchBar) {
       searchBar.addEventListener('keyup', () => {
         setTimeout(liveSearch(data), 500);

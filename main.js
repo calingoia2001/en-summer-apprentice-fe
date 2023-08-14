@@ -16,11 +16,11 @@ function navigateTo(url) {
 function getHomePageTemplate() {
   return `
    <div id="content" >
-      <input type="text" id="searchBar" placeholder="Search by name"/>
+      <input type="text" class="searchBar" placeholder="Search by name"/>
       <button id="filterButton">Filter Events</button>
       <div id="displayFilters">
       </div>
-      <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4"">
+      <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4 px-5 py-24">
       </div>
     </div>
   `;
@@ -73,7 +73,7 @@ function setupInitialPage() {
 function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
-  const searchBar = document.querySelector('#searchBar');
+  const searchBar = document.querySelector('.searchBar');
   const filterButton = document.querySelector('#filterButton');
   showLoader();
   fetchTicketEvents().then((data) => {

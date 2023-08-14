@@ -6,10 +6,11 @@ const styles = {
         'px-2',
         'py-1',
         'rounded',
-        'text-black',
+        'text-white',
         'font-italic',
         'focus:outline-none',
-        'focus:shadow-outline'
+        'focus:shadow-outline',
+        'text-xl'
       ],
       inputTicket: [
         'input-ticket',
