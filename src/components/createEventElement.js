@@ -23,7 +23,7 @@ const createEventElement = (eventData) => {
   eventDiv.classList.add('fullEvent');
   const contentMarkup = `
       <div class="card">
-        <img src="${eventImageMap[id]}" alt="${name}" class="event-image lg:h-96 md:h-48 w-full object-cover object-top">
+        <img src="${eventImageMap[id]}" alt="${name}" class="event-image lg:h-96 md:h-48 w-full object-fill object-top">
         <div class="description p-6 hover:bg-indigo-700 hover:text-white transition duration-300 ease-in border-b border-indigo-500">
         <p class="text-base font-medium text-indigo-300 mb-1">${startDate} : ${endDate}</p>
         <h2 class="event-title text-3xl font-semibold mb-3 text-center">${name}</h2>
@@ -31,13 +31,11 @@ const createEventElement = (eventData) => {
         <p>Remaining tickets: ${venue.capacity}</p>
         <p>Description: ${description}</p>
         </div>
-        <div class="dropdown">
         <label for="ticketCategories" class="ticketSelectText text-xl">Select a ticket category:</label>
         <select name="ticketCategories" id="ticketCategories-${id}" class="ticketSelect">
         <option value="${ticketCategories[0].id}">${ticketCategories[0].description} (Price: ${ticketCategories[0].price}$)</option>
         <option value="${ticketCategories[1].id}">${ticketCategories[1].description} (Price: ${ticketCategories[1].price}$)</option>
         </select>
-        </div>
       </div>
     `;
   eventDiv.innerHTML = contentMarkup;

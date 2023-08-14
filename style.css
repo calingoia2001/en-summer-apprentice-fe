@@ -1,41 +1,11 @@
-@font-face {
-  font-family: 'perivtina';
-  src: url(src/assets/fonts/perivtina.ttf) format("truetype");
-}
-
 body {
   font-family: 'Oxygen', sans-serif;
+  background-color: #639cd9;
 }
 
 #page-header {
-  background-color: #ffce54;
+  background-color: #5454c5;
   position: sticky;
-  top: 0;
-}
-
-.events {
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-h1 {
-  text-align: center;
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 12px;
-  color: #ac92ec
-}
-
-.link-item {
-  color: #ac92ec;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 40px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a text shadow effect */
-  transition: color 0.4s;
-}
-
-.link-item:hover {
-  color: #ffce54; /* Change text color on hover */
 }
 
 .logo {
@@ -43,71 +13,78 @@ h1 {
   padding: 6px;
 }
 
+.link-item {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  transition: color 0.4s;
+}
+
+.link-item:hover {
+  color: #639cd9;
+}
+
 .main-content-component {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 1%;
 }
 
 .searchBar {
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  margin-left: 45%;
   padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  margin-left: 40%;
-  margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .filterButton {
-  display: block;
-  background-color: #ac92ec;
+  background-color: #5454c5;
   color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-size: 16px;
+  border: 1px solid #fff;
+  border-radius: 8px;
   cursor: pointer;
+  padding: 8px 12px;
+  margin-left: 47%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   transition: background-color 0.3s;
-  margin-left: 43%;
-  margin-bottom: 10px;
+}
+
+.filterButton:hover {
+  background-color: #342056;
 }
 
 .filterButton.open ~ .displayFilters {
   display: block;
 }
 
-.filterButton:hover {
-  background-color: #ffce54;
-}
-
 input[type="checkbox"] {
-  margin-left: 5px;
-  
+  margin-left: 4px;
+  cursor: pointer;
 }
 
-label {
+.filter-label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   cursor: pointer;
   transition: 0.3s;
-  padding: 0 15px;
+  padding: 0 10px;
   border-radius: 8px;
 }
 
-label:hover {
-  background-color: #ac92ec;
+.filter-label:hover {
+  background-color: #5454c5;
+  color: white;
 }
 
 .displayFilters {
   display: none;
-  margin-left: 37%;
-  width: 35%;
-  align-items: center;
-  box-shadow: 0 5px 10px rgba(0 ,0, 0, 0.1);
+  margin-left: 35%;
+  width: 34%;
+  box-shadow: 0 5px 10px rgba(0 ,0, 0, 0.3);
   background-color: #fff;
   border-radius: 8px;
   position:static;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 1%;
+  margin-bottom: 1%;
   padding: 10px;
 }
 
@@ -120,27 +97,39 @@ label:hover {
 
 .filter-container p {
   font-weight: bold;
-  margin-bottom: 5px;
+  color: #5454c5;
+  margin-bottom: 3%;
+}
+
+.events {
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .event-title {
-  color: #ac92ec;
+  color: #5454c5;
 }
 
 .ticketSelectText {
-  display: inline;
-  margin-left: 20%;
+   margin-left: 30%;
+}
+
+.ticketSelect {
+  cursor: pointer;
+  margin-top: 2%;
+  margin-left: 32%;
+  padding: 8px;
 }
 
 .input-ticket {
-  margin-top: 10px;
-  width: 20%;
+  margin-top: 2%;
+  width: 15%;
   margin-left: 40%;
 }
 
 .add-to-cart-btn {
-  background: #ac92ec;
-  margin: 22px auto;
+  background: #342056;
+  margin: 15px auto;
   display: block;
   width: 40%;
 }
