@@ -7,7 +7,6 @@
 import { deleteOrderById } from "./apiCalls";
 
 export const createOrderElement = (order) => {
-    console.log(order);
     const { orderID, eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
     const orderDiv = document.createElement('div');
     orderDiv.id = `order-${orderID}`;

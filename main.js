@@ -1,5 +1,6 @@
 /* eslint-disable space-before-function-paren */
 /* eslint-disable semi */
+
 import { addEvents } from './src/components/utils';
 import { createOrderElement } from './src/components/createOrderElement';
 import { removeLoader, showLoader } from './src/components/removeOrAddLoader';
@@ -15,10 +16,9 @@ function navigateTo(url) {
 // HTML templates
 function getHomePageTemplate() {
   return `
-   <div id="content" >
-      <input type="text" class="searchBar" placeholder="Search by name"/>
-      <button class="filterButton">Filter Events</button>
-     
+   <div id="content">
+      <input type="text" class="searchBar md:w-64 lg:w-96" placeholder="Search by name"/>
+      <button class="filterButton text-2xl">Filter Events</button>
       <div class="displayFilters">
       </div>
       <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4 px-5 py-24">

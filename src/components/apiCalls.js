@@ -35,7 +35,7 @@ export async function deleteOrderById (orderID) {
             throw new Error('Error deleting order');
         }
         if (res.status === 204) {
-            return null; // Return null for empty response
+            return null;
         }
         return res.json();
     })

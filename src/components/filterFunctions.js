@@ -16,14 +16,18 @@ export function filterEvents (events) {
     const venueFilterLabel = document.createElement('p');
     venueFilterLabel.textContent = 'Filter by Location:';
     venueFilterContainer.appendChild(venueFilterLabel);
+
     const venueCheckboxes = Array.from(venueSet).map(venue => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.name = 'venue';
         checkbox.value = venue;
+
         const label = document.createElement('label');
+        label.classList.add('filter-label');
         label.textContent = venue;
         label.appendChild(checkbox);
+
         return label;
     });
 
@@ -32,18 +36,22 @@ export function filterEvents (events) {
     const eventFilterLabel = document.createElement('p');
     eventFilterLabel.textContent = 'Filter by Event Type:';
     eventFilterContainer.appendChild(eventFilterLabel);
+
     const eventTypeCheckboxes = Array.from(eventTypeSet).map(eventType => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.name = 'eventType';
         checkbox.value = eventType;
+
         const label = document.createElement('label');
+        label.classList.add('filter-label');
         label.textContent = eventType;
         label.appendChild(checkbox);
+
         return label;
     });
 
-    filtersContainer.innerHTML = ''; // Clear previous content
+    filtersContainer.innerHTML = '';
 
     venueCheckboxes.forEach(checkbox => {
         venueFilterContainer.appendChild(checkbox);
