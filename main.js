@@ -17,8 +17,9 @@ function getHomePageTemplate() {
   return `
    <div id="content" >
       <input type="text" class="searchBar" placeholder="Search by name"/>
-      <button id="filterButton">Filter Events</button>
-      <div id="displayFilters">
+      <button class="filterButton">Filter Events</button>
+     
+      <div class="displayFilters">
       </div>
       <div class="events flex items-center justify-center flex-wrap space-x-4 space-y-4 px-5 py-24">
       </div>
@@ -74,13 +75,14 @@ function renderHomePage() {
   const mainContentDiv = document.querySelector('.main-content-component');
   mainContentDiv.innerHTML = getHomePageTemplate();
   const searchBar = document.querySelector('.searchBar');
-  const filterButton = document.querySelector('#filterButton');
+  const filterButton = document.querySelector('.filterButton');
   showLoader();
   fetchTicketEvents().then((data) => {
     setTimeout(() => {
       removeLoader();
     }, 800);
     filterButton.addEventListener('click', () => {
+      filterButton.classList.toggle('open');
       filterEvents(data);
     })
     if (searchBar) {

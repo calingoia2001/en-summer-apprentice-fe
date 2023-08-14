@@ -9,8 +9,13 @@ import { addEvents } from "./utils";
 export function filterEvents (events) {
     const venueSet = new Set(events.map((event) => event.venue.locationName));
     const eventTypeSet = new Set(events.map((event) => event.type));
-    const filtersContainer = document.querySelector('#displayFilters');
+    const filtersContainer = document.querySelector('.displayFilters');
     
+    const venueFilterContainer = document.createElement('div');
+    venueFilterContainer.classList.add('filter-container');
+    const venueFilterLabel = document.createElement('p');
+    venueFilterLabel.textContent = 'Filter by Location:';
+    venueFilterContainer.appendChild(venueFilterLabel);
     const venueCheckboxes = Array.from(venueSet).map(venue => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -22,6 +27,11 @@ export function filterEvents (events) {
         return label;
     });
 
+    const eventFilterContainer = document.createElement('div');
+    eventFilterContainer.classList.add('filter-container');
+    const eventFilterLabel = document.createElement('p');
+    eventFilterLabel.textContent = 'Filter by Event Type:';
+    eventFilterContainer.appendChild(eventFilterLabel);
     const eventTypeCheckboxes = Array.from(eventTypeSet).map(eventType => {
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
@@ -36,14 +46,15 @@ export function filterEvents (events) {
     filtersContainer.innerHTML = ''; // Clear previous content
 
     venueCheckboxes.forEach(checkbox => {
-        filtersContainer.appendChild(checkbox);
+        venueFilterContainer.appendChild(checkbox);
     });
-
-    filtersContainer.appendChild(document.createElement('br'));
 
     eventTypeCheckboxes.forEach(checkbox => {
-        filtersContainer.appendChild(checkbox);
+        eventFilterContainer.appendChild(checkbox);
     });
+
+    filtersContainer.appendChild(venueFilterContainer);
+    filtersContainer.appendChild(eventFilterContainer);
 
     filtersContainer.addEventListener('change', () => {
         const selectedVenues = Array.from(filtersContainer.querySelectorAll('input[name="venue"]:checked')).map(checkbox => checkbox.value);
