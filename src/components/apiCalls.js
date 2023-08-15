@@ -52,7 +52,25 @@ export async function deleteOrderById (orderID) {
     });
 }
 
-// Update a order
-export async function updateOrder (orderID) {
-    // to do
+// Update a order 'https://localhost:7003/api/Order/Patch'
+export async function updateOrder (orderid, nrOfTickets, ticketCategoryID) {
+    return fetch('https://localhost:7003/api/Order/Patch', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            orderID: orderid,
+            numberOfTickets: nrOfTickets,
+            ticketCategoryid: ticketCategoryID,
+        }),
+    }).then((res) => {
+        if (res.status === 200) {
+            toastr.success('Order succesfully updated!');
+        } else {
+            console.log(res);
+            toastr.error('Error updating the error!');
+        }
+        return res;
+    });
 }

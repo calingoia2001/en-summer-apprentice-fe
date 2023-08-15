@@ -15,5 +15,6 @@
         border-opacity-60 
         rounded-lg  
         overflow-hidden
+        /*bg-gradient-to-b from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800*/
     }
 }

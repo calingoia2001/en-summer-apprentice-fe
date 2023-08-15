@@ -4,7 +4,7 @@
 /* eslint-disable indent */
 /* eslint-disable semi */
 
-import { deleteOrderById } from "./apiCalls";
+import { deleteOrderById, updateOrder } from "./apiCalls";
 
 export const createOrderElement = (order) => {
     const { orderID, eventID, orderedAt, ticketCategoryID, numberOfTickets, totalPrice } = order;
@@ -13,6 +13,7 @@ export const createOrderElement = (order) => {
     orderDiv.classList.add('fullOrder');
     const contentMarkup = `
       <div class="orderCard">
+        <p class="description">Order id: ${orderID}</p>
         <p class="description">Event id: ${eventID}</p>
         <p class="description">Number of tickets: ${numberOfTickets}</p>
         <p class="description">Ordered At: ${orderedAt}</p>
@@ -29,7 +30,7 @@ export const createOrderElement = (order) => {
     })
     updateButton.innerText = 'update';
     updateButton.addEventListener('click', () => {
-      // updateOrder(orderID); // to do
+      updateOrder(orderID, 25, 1);
     })
     orderDiv.appendChild(deleteButton);
     orderDiv.appendChild(updateButton)
