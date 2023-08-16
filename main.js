@@ -30,7 +30,19 @@ function getHomePageTemplate() {
 function getOrdersPageTemplate() {
   return `
     <div id="content">
-    <h1 class="text-2xl mb-4 mt-8 text-center">Purchased Tickets</h1>
+    <h1 class="text-2xl mb-4 mt-8 text-center font-bold">Purchased Tickets:</h1>
+    <div class="rowTitle ml-6 mr-6">
+     <div class="orderCard flex items-center space-x-4 mb-4">
+       <ul class="column-titles">
+         <li>OrderID</li>
+         <li>EventID</li>
+         <li>OrderedAt</li>
+         <li>NrTickets</li>
+         <li>Category</li>
+         <li>Price</li>
+       </ul>
+     </div>
+    </div>
       <div class="orders ml-6 mr-6">
       </div>
     </div>

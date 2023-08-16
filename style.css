@@ -137,13 +137,59 @@ input[type="checkbox"] {
   width: 40%;
 }
 
+/* ORDER STYLE */
+
 .fullOrder {
-  border: 1px solid #0e6cb8;
+  border-bottom: 4px ridge;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin: 1%;
+}
+
+.rowTitle {
+  border-bottom: 4px ridge;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1%;
+}
+
+.column-titles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.column-titles li {
+  margin-right: 16%;
+  flex: 1;
+  font-weight: bold;
+  text-transform: uppercase; 
+  color: #333; 
+  font-size: 16px; 
+  letter-spacing: 1px; 
+}
+
+.orderCard:hover {
+  transform: scale(1.02);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.input-field {
+  width: 60%;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.flex-1 {
+  flex: 1;
 }
 
 .buttons-container {
@@ -154,8 +200,7 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 
-.deleteButton {
-  background-color: #E50000;
+.deleteButton, .updateButton, .saveButton, .cancelButton {
   color: white;
   border: none;
   border-radius: 4px;
@@ -165,15 +210,17 @@ input[type="checkbox"] {
   align-items: center;
 }
 
+button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.deleteButton {
+  background-color: #E50000;
+}
+
 .updateButton {
   background-color: #5454c5;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 6px 10px;
-  display: inline-flex;
-  align-items: center;
 }
 
 .updateButton:hover {
@@ -181,36 +228,11 @@ input[type="checkbox"] {
 }
 
 .saveButton {
-  background-color: #5454c5;
-  color: white;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 8px 12px;
-  margin-left: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  transition: background-color 0.3s;
-}
-
-.saveButton:hover {
-  background-color: #342056;
+  background-color: #4CAF50;
 }
 
 .cancelButton {
-  background-color: #5454c5;
-  color: white;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  padding: 8px 12px;
-  margin-left: 1%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  transition: background-color 0.3s;
-}
+  background-color: #E50000;
 
-.cancelButton:hover {
-  background-color: #342056;
 }
 
