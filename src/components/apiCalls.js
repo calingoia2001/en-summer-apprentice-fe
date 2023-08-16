@@ -40,15 +40,15 @@ export async function deleteOrderById (orderID) {
         return res.json();
     })
     .then((data) => {
-        removeLoader();
-        // eslint-disable-next-line no-undef
         const orderToBeRemoved = document.getElementById(`order-${orderID}`);
         orderToBeRemoved.remove();
-        toastr.success('Success!');
+        toastr.success('Order deleted succesfuly!');
     })
     .catch((error) => {
-        removeLoader();
         toastr.error(error);
+    })
+    .finally(() => {
+        removeLoader();
     });
 }
 
@@ -67,9 +67,14 @@ export async function updateOrder (orderid, nrOfTickets, ticketCategoryID) {
     }).then((res) => {
         if (res.status === 200) {
             toastr.success('Order succesfully updated!');
+            setTimeout(() => {
+                location.reload();
+            }, 1200);
         } else {
-            console.log(res);
             toastr.error('Error updating the error!');
+            setTimeout(() => {
+                location.reload();
+            }, 1200);
         }
         return res;
     });
