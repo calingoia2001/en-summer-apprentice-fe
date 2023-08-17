@@ -23,15 +23,18 @@ const createEventElement = (eventData) => {
   eventDiv.classList.add('fullEvent');
   const contentMarkup = `
       <div class="card">
+       <div class="image-container">
         <img src="${eventImageMap[id]}" alt="${name}" class="event-image lg:h-96 md:h-48 w-full object-fill object-top">
-        <div class="description p-6 hover:bg-indigo-700 hover:text-white transition duration-300 ease-in border-b border-indigo-500">
+        <div class="description-overlay p-6">
         <p class="text-base font-medium text-indigo-300 mb-1">${startDate} : ${endDate}</p>
         <h2 class="event-title text-3xl font-semibold mb-3 text-center">${name}</h2>
         <p>Location: ${venue.locationName}</p>
         <p>Remaining tickets: ${venue.capacity}</p>
         <p>Description: ${description}</p>
         </div>
-        <label for="ticketCategories" class="ticketSelectText text-xl">Select a ticket category:</label>
+       </div>
+        <button type="button" class="buyButton" id="buybutton-${id}"></button> 
+        <label for="ticketCategories" class="ticketSelectText text-xl" id="ticketText-${id}">Select a ticket category:</label>
         <select name="ticketCategories" id="ticketCategories-${id}" class="ticketSelect">
         <option value="${ticketCategories[0].id}">${ticketCategories[0].description} (Price: ${ticketCategories[0].price}$)</option>
         <option value="${ticketCategories[1].id}">${ticketCategories[1].description} (Price: ${ticketCategories[1].price}$)</option>
@@ -40,25 +43,49 @@ const createEventElement = (eventData) => {
     `;
   eventDiv.innerHTML = contentMarkup;
 
+  const buyButton = eventDiv.querySelector(`#buybutton-${id}`)
+  const buyIcon = document.createElement('i');
+  buyIcon.classList.add('fa-solid', 'fa-cart-shopping'); 
+  buyButton.appendChild(buyIcon);
+
   const input = document.createElement('input');
   const addToCart = document.createElement('button');
+  const selectTicketCategory = eventDiv.querySelector(`#ticketCategories-${id}`)
+  const selectText = eventDiv.querySelector(`#ticketText-${id}`)
 
   input.classList.add(...inputClasses);
+  input.classList.add('ticketDropdown')
   input.type = 'number';
   input.min = '0';
   input.max = '15';
   input.value = '0';
 
   addToCart.classList.add(...addToCartBtnClasses);
+  addToCart.classList.add('ticketDropdown');
   addToCart.innerText = 'Add ticket to Cart';
+
+  buyButton.addEventListener('click', () => {
+    buyButton.style.display = 'none';
+    selectTicketCategory.style.display = 'block';
+    selectText.style.display = 'block';
+    addToCart.style.display = 'block';
+    input.style.display = 'block';
+  })
+
   addToCart.addEventListener('click', () => {
-    const selectTicketCategory = document.querySelector(`#ticketCategories-${id}`)
     const ticketId = selectTicketCategory.value;
+    buyButton.style.display = 'block';
+    selectTicketCategory.style.display = 'none';
+    selectText.style.display = 'none';
+    addToCart.style.display = 'none';
+    input.style.display = 'none';
     postOrder(id, ticketId, input);
   });
 
+  eventDiv.appendChild(buyButton);
   eventDiv.appendChild(input);
   eventDiv.appendChild(addToCart);
+
   return eventDiv;
 }
 
