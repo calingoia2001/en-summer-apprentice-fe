@@ -209,7 +209,7 @@ input[type="checkbox"] {
 }
 
 .column-titles li {
-  margin-right: 13%;
+  margin-right: 16%;
   flex: 1;
   font-weight: bold;
   text-transform: uppercase; 
