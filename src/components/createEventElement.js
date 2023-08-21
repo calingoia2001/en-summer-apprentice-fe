@@ -18,7 +18,7 @@ const createEventElement = (eventData) => {
     13: './src/assets/ec_poster.jpg',
     14: './src/assets/jazz_poster.jpeg'
   };
-  const { id, name, description, venue, startDate, endDate, ticketCategories } = eventData;
+  const { id, name, description, venue, startDate, ticketCategories } = eventData;
   const eventDiv = document.createElement('div');
   eventDiv.classList.add('fullEvent');
   const contentMarkup = `
@@ -26,7 +26,7 @@ const createEventElement = (eventData) => {
        <div class="image-container">
         <img src="${eventImageMap[id]}" alt="${name}" class="event-image lg:h-96 md:h-48 w-full object-fill object-top">
         <div class="description-overlay p-6">
-        <p class="text-base font-medium text-indigo-300 mb-1">${startDate} : ${endDate}</p>
+        <p class="text-base font-medium text-indigo-300 mb-1">${startDate}</p>
         <h2 class="event-title text-3xl font-semibold mb-3 text-center">${name}</h2>
         <p>Location: ${venue.locationName}</p>
         <p>Remaining tickets: ${venue.capacity}</p>

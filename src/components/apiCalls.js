@@ -52,7 +52,7 @@ export async function deleteOrderById (orderID) {
     });
 }
 
-// Update a order 'https://localhost:7003/api/Order/Patch'
+// Update order
 export async function updateOrder (orderid, nrOfTickets, ticketCategoryID) {
     return fetch('https://localhost:7003/api/Order/Patch', {
         method: 'PATCH',

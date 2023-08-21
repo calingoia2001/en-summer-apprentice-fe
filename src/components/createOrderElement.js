@@ -97,7 +97,6 @@ export const createOrderElement = (order) => {
     saveButton.style.display = 'none';
     cancelButton.style.display = 'none';
     updateButton.style.display = 'inline-block';
-
     numberOfTicketsInput.value = numberOfTickets;
     ticketCategoryInput.value = ticketCategoryID;
     numberOfTicketsInput.disabled = true;
