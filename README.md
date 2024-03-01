@@ -1,14 +1,1 @@
-1. Install
-```bash
-npm i
-```
-
-2. Start
-```
-npm run dev
-```
-
-3. Check browser console
-
-
-![alt schema](./schema.png)
+Developed web/mobile application for a ticket management system that enables users to search for existing events in the platform, based on various criteria, and facilitates ticket orders. Learned and appliedg knowledge of technologies like Software Testing, SQL, JavaScript, HTML, CSS, Spring Boot, Gradle, Flutter, and the .NET Framework.
